@@ -12,4 +12,6 @@ class TestEvent < Minitest::Test
     assert_equal( 1, @event.id )
   end
 
+  # TODO: test all attributes of events class.
+
 end
