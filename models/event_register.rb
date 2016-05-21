@@ -11,4 +11,8 @@ class EventRegister
     @event_id = options[ :event_id ].to_i
   end
 
+  # TODO: Create EventRegister class CRUD functions 
+
+  # TODO: create EventRegister class helper functions for mapping items and map item.
+
 end

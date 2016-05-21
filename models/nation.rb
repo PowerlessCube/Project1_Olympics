@@ -13,4 +13,8 @@ class Nation
     @athletes = options[ :athletes ]
   end
 
+  # TODO: Create Nation class CRUD functions 
+
+  # TODO: create Nation class helper functions for mapping items and map item.
+
 end

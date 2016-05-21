@@ -11,4 +11,8 @@ class Athlete
     @nation_id = options[ :nation_id ].to_i
   end
 
+  # TODO: Create Athlete class CRUD functions 
+
+  # TODO: create Athlete class helper functions for mapping items and map item.
+
 end

@@ -7,13 +7,11 @@ require_relative( '../models/athlete' )
 class TestNation < Minitest::Test
 
   def setup
-
     @athlete1 = Athlete.new( { id: 1, name: 'Alistair Mackay', nation_id: 1 } )
-
     @nation1 = Nation.new( { id: 1, name: 'America', acronym: 'usa', flag: 'URL of a flag', athletes: [ @athlete1 ] } )
-    
   end
 
+#instance variable tests
   def test_nation_id
     assert_equal( 1, @nation1.id )
   end

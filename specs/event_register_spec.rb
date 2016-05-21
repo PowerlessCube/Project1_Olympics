@@ -9,6 +9,7 @@ class TestEventRegister < MiniTest::Test
     @event1 = EventRegister.new( { id: 1, athlete_id: 2, event_id: 3} )
   end
 
+  #instance variable tests
   def test_event_register_id
     assert_equal( 1, @event1.id )
   end

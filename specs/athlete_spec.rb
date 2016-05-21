@@ -8,6 +8,7 @@ class TestAthlete < MiniTest::Test
      @athlete1 = Athlete.new( { id: 1, name: 'Alistair Mackay', nation_id: 1 } )
   end
 
+  #instance variable tests
   def test_athlete_id
     assert_equal( 1, @athlete1.id )
   end
