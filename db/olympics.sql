@@ -13,19 +13,19 @@ CREATE TABLE nations(
 CREATE TABLE athletes(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR( 255 ),
-  nation_id INT4 REFERENCES nations( id )
+  nation_id INT4 REFERENCES nations( id ) ON DELETE CASCADE
 );
 
 CREATE TABLE events(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR( 255 ),
-  gold_athlete_id INT4 REFERENCES athletes( id ),
-  silver_athlete_id INT4 REFERENCES athletes( id ),
-  bronze_athlete_id INT4 REFERENCES athletes( id )
+  gold_athlete_id INT4 REFERENCES athletes( id ) ON DELETE CASCADE,
+  silver_athlete_id INT4 REFERENCES athletes( id ) ON DELETE CASCADE,
+  bronze_athlete_id INT4 REFERENCES athletes( id ) ON DELETE CASCADE
 );
 
 CREATE TABLE event_registers(
   id SERIAL4 PRIMARY KEY,
-  athlete_id INT4 REFERENCES athletes( id ),
-  event_id INT4 REFERENCES athletes( id )
+  athlete_id INT4 REFERENCES athletes( id ) ON DELETE CASCADE,
+  event_id INT4 REFERENCES athletes( id ) ON DELETE CASCADE
 );
