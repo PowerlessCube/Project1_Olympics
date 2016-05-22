@@ -1,6 +1,6 @@
 require( 'pg' )
-require( 'pry-byebug' )
 require_relative( '../db/sql_runner' )
+
 
 class Nation
 
@@ -80,7 +80,10 @@ class Nation
     SqlRunner.run( sql )
   end
 
-  #helper functions
+  #LOGIC functions:
+
+
+  #HELPER functions:
   def self.map_items( sql )
     nations = SqlRunner.run( sql )
     result = nations.map{ | nation | Nation.new( nation ) }
