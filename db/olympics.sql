@@ -27,5 +27,5 @@ CREATE TABLE events(
 CREATE TABLE event_registers(
   id SERIAL4 PRIMARY KEY,
   athlete_id INT4 REFERENCES athletes( id ) ON DELETE CASCADE,
-  event_id INT4 REFERENCES athletes( id ) ON DELETE CASCADE
+  event_id INT4 REFERENCES events( id ) ON DELETE CASCADE
 );

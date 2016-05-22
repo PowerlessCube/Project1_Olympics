@@ -1,5 +1,8 @@
 require( 'pg' )
 require( 'pry-byebug' )
+require_relative( '../db/sql_runner' )
+require_relative( '../db/sql_runner' )
+
 
 class EventRegister
 
@@ -22,7 +25,7 @@ class EventRegister
       #{@event_id}
     )
     RETURNING *;"
-    return EvetRegister.map_item( sql )
+    return EventRegister.map_item( sql )
   end
 
   #READ: functions
@@ -30,7 +33,7 @@ class EventRegister
     sql =
     "SELECT *
     FROM event_registers;"
-    return EvetRegister.map_items( sql )
+    return EventRegister.map_items( sql )
   end
 
   def self.find_by_id( id )
@@ -40,7 +43,7 @@ class EventRegister
       event_registers
     WHERE
       id = #{id};"
-    return EvetRegister.map_item( sql )
+    return EventRegister.map_item( sql )
   end
 
   #UPDATE: functions
@@ -53,7 +56,7 @@ class EventRegister
     WHERE
       id = #{@id}
     RETURNING *;"
-    return EvetRegister.map_item( sql )
+    return EventRegister.map_item( sql )
   end
 
   #DELETE: functions
@@ -76,12 +79,12 @@ class EventRegister
   #Helper functions
   def self.map_items( sql )
     event_registers = SqlRunner.run( sql )
-    result = event_registers.map{ | event | EvetRegister.new( event ) }
+    result = event_registers.map{ | event_register | EventRegister.new( event_register ) }
     return result
   end
 
   def self.map_item( sql )
-    result = EvetRegister.map_items( sql )
+    result = EventRegister.map_items( sql )
     return result.first
   end
 

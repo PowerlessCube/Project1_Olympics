@@ -1,5 +1,6 @@
 require( 'pg' )
 require( 'pry-byebug' )
+require_relative( '../db/sql_runner' )
 
 class Event
 
@@ -79,7 +80,11 @@ class Event
   end
 
   #LOGIC functions:
+  # TODO: logic to ensure that an athlete can not win more than one medal per event.
 
+  # TODO: logic that involves selecting medal winners from the pool of athletes that have registered for the event.
+
+  # TODO: Logic that lists all athletes participating in a given event. and what medal they won.
 
   #Helper functions
   def self.map_items( sql )
