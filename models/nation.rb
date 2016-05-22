@@ -1,5 +1,6 @@
 require( 'pg' )
 require_relative( '../db/sql_runner' )
+require_relative( './athlete' )
 
 
 class Nation
@@ -11,9 +12,7 @@ class Nation
     @name = options[ 'name' ]
     @acronym = options[ 'acronym' ].upcase
     @flag = options[ 'flag' ]
-    @athletes = options[ 'athletes' ]
   end
-  #do I need an athletes array? I think no, it's enough to be instanciated as an empty array.
 
 # TODO: Create Nation class CRUD functions
 
@@ -81,7 +80,12 @@ class Nation
   end
 
   #LOGIC functions:
+  def athlete_count?
+    return Athlete.nation?( @id ).count
+  end
 
+
+  # TODO: How many medals
 
   #HELPER functions:
   def self.map_items( sql )

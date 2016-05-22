@@ -30,6 +30,53 @@ class Athlete
   end
 
   #READ: functions
+
+  def self.gold_medals?
+    sql =
+    "SELECT a.id, a.name, a.nation_id
+    FROM athletes a
+    INNER JOIN event_registers er
+    ON er.athlete_id = a.id
+    INNER JOIN events e
+    ON er.event_id = e.id
+    WHERE a.id = e.gold_athlete_id;"
+    return Athlete.map_items( sql )
+  end
+
+  def self.silver_medals?
+    sql =
+    "SELECT a.id, a.name, a.nation_id
+    FROM athletes a
+    INNER JOIN event_registers er
+    ON er.athlete_id = a.id
+    INNER JOIN events e
+    ON er.event_id = e.id
+    WHERE a.id = e.silver_athlete_id;"
+    return Athlete.map_items( sql )
+  end
+
+  def self.bronze_medals?
+    sql =
+    "SELECT a.id, a.name, a.nation_id
+    FROM athletes a
+    INNER JOIN event_registers er
+    ON er.athlete_id = a.id
+    INNER JOIN events e
+    ON er.event_id = e.id
+    WHERE a.id = e.bronze_athlete_id;"
+    return Athlete.map_items( sql )
+  end
+
+  def self.nation?( nation_id )
+    sql =
+    "SELECT a.*
+    FROM athletes a
+    INNER JOIN nations n
+    ON n.id = a.nation_id
+    WHERE n.id = #{nation_id}"
+    return Athlete.map_items( sql )
+  end
+
   def self.all
     sql =
     "SELECT *
@@ -75,14 +122,6 @@ class Athlete
   end
 
   #LOGIC functions:
-  def populate_athletes
-    # FIXME: : Create a function that populates the athletes array with the corresponding athletes by nation id.
-    for nation in Nation.all
-      if nation.id == nation_id
-        @athletes << athlete
-      end
-    end
-  end
 
 
   #Helper functions
