@@ -1,9 +1,15 @@
-# TODO: Create MedalTable class - it will preform analysis on all subordinate classes and provide information for the HTML table.
+require( 'pry-byebug' )
+
+require_relative( '../models/medal_table' )
+require_relative( '../models/nation' )
+require_relative( '../models/event' )
+require_relative( '../models/athlete' )
+require_relative( '../models/event_register' )
 
 class MedalTable
 
-  def initialize
-    
+  def initialize( )
+    @nations = Nation.all
   end
 
 end

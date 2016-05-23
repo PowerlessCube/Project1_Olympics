@@ -5,7 +5,7 @@ require 'pry-byebug'
 
 class Athlete
 
-  attr_accessor( :id, :name, :nation_id )
+  attr_accessor( :id, :name, :nation_id, :gold_medals )
 
   def initialize( options )
     @id = options[ 'id' ].to_i
@@ -54,14 +54,14 @@ class Athlete
     return Event.map_items( sql )
   end
 
-  def self.nation( nation_id )
+  def event
     sql =
-    "SELECT a.*
-    FROM athletes a
-    INNER JOIN nations n
-    ON n.id = a.nation_id
-    WHERE n.id = #{nation_id}"
-    return Athlete.map_items( sql )
+    "SELECT e.*
+    FROM events e
+    INNER JOIN event_registers er
+    ON er.event_id = e.id
+    WHERE er.athlete_id = #{@id};"
+    return Event.map_items( sql )
   end
 
   def self.all
