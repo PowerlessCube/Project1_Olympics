@@ -1,6 +1,7 @@
 require( 'pg' )
 require_relative( '../db/sql_runner' )
 require_relative( './nation' )
+require 'pry-byebug'
 
 class Athlete
 
@@ -11,8 +12,6 @@ class Athlete
     @name = options[ 'name' ]
     @nation_id = options[ 'nation_id' ].to_i
   end
-
-  # TODO: Create Athlete class CRUD functions
 
   #CREATE: function
   def save
@@ -31,43 +30,31 @@ class Athlete
 
   #READ: functions
 
-  def self.gold_medals?
+  def gold_medals
     sql =
-    "SELECT a.id, a.name, a.nation_id
-    FROM athletes a
-    INNER JOIN event_registers er
-    ON er.athlete_id = a.id
-    INNER JOIN events e
-    ON er.event_id = e.id
-    WHERE a.id = e.gold_athlete_id;"
-    return Athlete.map_items( sql )
+    "SELECT *
+     FROM events
+     WHERE gold_athlete_id = #{@id}"
+    return Event.map_items( sql )
   end
 
-  def self.silver_medals?
+  def silver_medals
     sql =
-    "SELECT a.id, a.name, a.nation_id
-    FROM athletes a
-    INNER JOIN event_registers er
-    ON er.athlete_id = a.id
-    INNER JOIN events e
-    ON er.event_id = e.id
-    WHERE a.id = e.silver_athlete_id;"
-    return Athlete.map_items( sql )
+    "SELECT *
+     FROM events
+     WHERE silver_athlete_id = #{@id}"
+    return Event.map_items( sql )
   end
 
-  def self.bronze_medals?
+  def bronze_medals
     sql =
-    "SELECT a.id, a.name, a.nation_id
-    FROM athletes a
-    INNER JOIN event_registers er
-    ON er.athlete_id = a.id
-    INNER JOIN events e
-    ON er.event_id = e.id
-    WHERE a.id = e.bronze_athlete_id;"
-    return Athlete.map_items( sql )
+    "SELECT *
+     FROM events
+     WHERE bronze_athlete_id = #{@id}"
+    return Event.map_items( sql )
   end
 
-  def self.nation?( nation_id )
+  def self.nation( nation_id )
     sql =
     "SELECT a.*
     FROM athletes a
@@ -120,9 +107,6 @@ class Athlete
     WHERE id = #{id};"
     SqlRunner.run( sql )
   end
-
-  #LOGIC functions:
-
 
   #Helper functions
   def self.map_items( sql )

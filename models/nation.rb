@@ -1,11 +1,12 @@
 require( 'pg' )
+require( 'pry-byebug' )
 require_relative( '../db/sql_runner' )
 require_relative( './athlete' )
 
 
 class Nation
 
-  attr_accessor( :id, :name, :acronym, :flag, :athletes )
+  attr_accessor( :id, :name, :acronym, :flag )
 
   def initialize ( options )
     @id = options[ 'id' ].to_i
@@ -13,8 +14,6 @@ class Nation
     @acronym = options[ 'acronym' ].upcase
     @flag = options[ 'flag' ]
   end
-
-# TODO: Create Nation class CRUD functions
 
   #CREATE: function
   def save
@@ -65,6 +64,35 @@ class Nation
     return Nation.map_item( sql )
   end
 
+  def athletes
+    sql =
+    "SELECT a.*
+    FROM athletes a
+    WHERE #{@id} = a.nation_id;"
+    return Athlete.map_items( sql )
+  end
+
+  def gold_medals
+    result = athletes.map do |athlete|
+      athlete.gold_medals
+    end
+    return result.flatten
+  end
+
+  def silver_medals
+    result = athletes.map do |athlete|
+      athlete.silver_medals
+    end
+    return result.flatten
+  end
+
+  def bronze_medals
+    result = athletes.map do |athlete|
+      athlete.bronze_medals
+    end
+    return result.flatten
+  end
+
   #DELETE functions
   def self.delete_all
     sql=
@@ -78,14 +106,6 @@ class Nation
     WHERE id = #{id};"
     SqlRunner.run( sql )
   end
-
-  #LOGIC functions:
-  def athlete_count?
-    return Athlete.nation?( @id ).count
-  end
-
-
-  # TODO: How many medals
 
   #HELPER functions:
   def self.map_items( sql )
