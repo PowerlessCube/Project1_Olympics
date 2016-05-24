@@ -12,11 +12,35 @@ class MedalTable
     @nations = Nation.all
   end
 
+  def display_flag( nation )
+    return nation.flag
+  end
+
+  def display_acronym( nation )
+    return nation.acronym
+  end
+
+  def display_name( nation )
+    return nation.name
+  end
+
+  def display_gold_medal_count( nation )
+    return nation.gold_medals.count
+  end
+
+  def display_silver_medal_count( nation )
+    return nation.silver_medals.count
+  end
+
+  def display_bronze_medal_count( nation )
+    return nation.bronze_medals.count
+  end
+
   def gold_points( nation )
     return nation.gold_medals.count * 5
   end
 
-  def silver_points(nation)
+  def silver_points( nation )
     return nation.silver_medals.count * 3
   end
 
@@ -30,3 +54,5 @@ class MedalTable
 
 
 end
+
+nil

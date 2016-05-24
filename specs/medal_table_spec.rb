@@ -19,8 +19,4 @@ class TestMedalTable < Minitest::Test
     assert_equal( 'NOR' , @nations[1].acronym )
   end
 
-  def test_total_gold_points
-    assert_equal( 10, total_gold_points( @nations[0] ) )
-  end
-
 end
