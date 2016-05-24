@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="text/css" href="/style.css">
   </head>
   <body>
-    <%= yield %>
+    <nav>
+      <ul>
+        <li><a href="/nations">Nations</a></li>
+        <li><a href="/athletes">Athletes</a></li>
+        <li><a href="/events"></a>Events</li>
+        <li><a href="/medaltable"></a>Medal Table</li>
+      </ul>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

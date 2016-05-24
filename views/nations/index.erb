@@ -1,0 +1,7 @@
+<ul>
+  <% @nations.each do |nation| %>
+    <li>
+      <a href="/nations/<%= nation.id %>"><%= nation.flag %> <%= nation.name %> </a>
+    </li>
+  <% end %>
+</ul>
