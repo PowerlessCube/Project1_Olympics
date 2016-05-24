@@ -1,8 +1,17 @@
+require( 'pry-byebug' )
 require_relative( '../models/athlete' )
 
-# TODO: 7 restful routes: GET /athletes INDEX
+# 7 restful routes: GET /athletes INDEX
+get '/athletes' do
+  @athletes = Athlete.all
+  erb( :'athletes/index' )
+end
 
 # TODO: 7 restful routes: GET /athletes/new NEW
+get '/athletes/new' do
+  @nations = Nation.all
+  erb( :'athletes/new' )
+end
 
 # TODO: 7 restful routes: POST /athletes CREATE
 

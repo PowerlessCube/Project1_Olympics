@@ -1,5 +1,6 @@
 require( 'pry-byebug' )
 require_relative( '../models/nation' )
+require_relative( '../models/athlete' )
 
 # 7 restful routes: GET /nations INDEX
 get '/nations' do

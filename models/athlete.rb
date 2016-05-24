@@ -54,6 +54,14 @@ class Athlete
     return Event.map_items( sql )
   end
 
+  def nation
+    sql =
+    "SELECT *
+    FROM nations n
+    WHERE n.id = #{@nation_id};"
+    return Nation.map_item( sql )
+  end
+
   def event
     sql =
     "SELECT e.*

@@ -1,6 +1,12 @@
-<%= @nation.name %>
+<h1>Team <%= @nation.name %></h1>
+<ul>
+  <h3>Olympic Team</h3>
+  <% @nation.athletes.each do |athlete| %>
+    <ul><a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a></ul>
+  <% end %>
+</ul>
 
-<a href="/nations/<%= @nation.id %>/edit">Edit</a>
+<a href="/nations/<%= @nation.id %>/edit">Edit Nation</a>
 
 <form action="/nations/<%= @nation.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
