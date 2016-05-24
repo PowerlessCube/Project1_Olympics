@@ -1,4 +1,4 @@
-require 'pry-byebug'
+require( 'pry-byebug' )
 require_relative( '../models/nation' )
 
 # 7 restful routes: GET /nations INDEX

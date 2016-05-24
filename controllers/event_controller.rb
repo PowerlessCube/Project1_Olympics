@@ -1,6 +1,4 @@
 
-
-
 # TODO: 7 restful routes: GET /events INDEX
 
 # TODO: 7 restful routes: GET /events/new NEW

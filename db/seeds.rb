@@ -1,8 +1,8 @@
-require 'pry-byebug'
-require_relative '../models/athlete'
-require_relative '../models/event'
-require_relative '../models/nation'
-require_relative '../models/event_register'
+require( 'pry-byebug' )
+require_relative( '../models/athlete' )
+require_relative( '../models/event' )
+require_relative( '../models/nation' )
+require_relative( '../models/event_register' )
 
 EventRegister.delete_all
 Event.delete_all
