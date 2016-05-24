@@ -1,0 +1,19 @@
+<div class="content">
+
+  <h2>Edit Nation</h2>
+
+  <form action="/nations/<%= @nation.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="name">Country Name:</label>
+    <input type="text" name="name" value="<%= @nation.name %>"><br>
+
+    <label for="acronym">Acronym:</label>
+    <input type="text" name="acronym" value="<%= @nation.acronym %>"><br>
+
+    <label for="flag">Flag URL:</label>
+    <input type="text" name="flag" value="<%= @nation.flag %>"><br>
+
+    <input type='submit' value="Update Nation">
+  </form>
+
+</div>

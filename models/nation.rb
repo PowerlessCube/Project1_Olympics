@@ -33,17 +33,16 @@ class Nation
   end
 
   #UPDATE: functions
-  def update
-    sql =
-      "UPDATE nations
-      SET
-        name = '#{@name}',
-        acronym = '#{@acronym}',
-        flag = '#{@flag}'
-      WHERE
-        id = '#{@id}'
-      RETURNING *;"
-    return Nation.map_item( sql )
+  def self.update( options )
+    SqlRunner.run(
+    "UPDATE nations
+    SET
+      name = '#{options['name']}',
+      acronym = '#{options['acronym']}',
+      flag = '#{options['flag']}'
+    WHERE
+      id = '#{options['id']}';"
+    )
   end
 
   #READ: functions.

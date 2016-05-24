@@ -1,26 +1,46 @@
 require 'pry-byebug'
-require_relative( '../models/nation.rb' )
+require_relative( '../models/nation' )
 
-#7 restful routes
-# TODO: 7 restful routes: GET /nations INDEX
-
+# 7 restful routes: GET /nations INDEX
 get '/nations' do
   @nations = Nation.all
   erb :'nations/index'
 end
 
-# TODO: 7 restful routes: GET /nations INDEX
+# 7 restful routes: GET /nations/new NEW
+get '/nations/new' do
+  erb( :'nations/new' )
+end
 
-# TODO: 7 restful routes: GET /nations/new NEW
+# 7 restful routes: POST /nations CREATE
+post '/nations' do
+ @nation = Nation.new( params )
+ @nation.save()
+ redirect to('/nations')
+end
 
-# TODO: 7 restful routes: POST /nations CREATE
+# 7 restful routes: GET /nations/:id SHOW
+get '/nations/:id' do
+  @nation = Nation.find_by_id( params[:id] )
+  erb( :'nations/show' )
+end
 
-# TODO: 7 restful routes: GET /nations/:id SHOW
+# 7 restful routes: GET /nations/:id/edit EDIT
+get '/nations/:id/edit' do
+  @nation = Nation.find_by_id( params[:id] )
+  erb( :'nations/edit' )
+end
 
-# TODO: 7 restful routes: GET /nations/:id/edit EDIT
+# 7 restful routes: PUT /nations/:id UPDATE
+put '/nations/:id' do
+ @nation = Nation.update( params )
+ redirect to( "/nations/#{params[:id]}" )
+end
 
-# TODO: 7 restful routes: PUT /nations/:id UPDATE
-
-# TODO: 7 restful routes: DELETE /nations/:id/delete DESTROY
+# 7 restful routes: DELETE /nations/:id/delete DELETE
+delete '/nations/:id' do
+  Nation.delete_by_id( params[:id] )
+  redirect to('/nations')
+end
 
 nil
