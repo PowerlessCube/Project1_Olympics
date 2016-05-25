@@ -5,7 +5,9 @@ get '/events' do
 end
 
 # TODO: 7 restful routes: GET /events/new NEW
-get 'events/new' do
+get '/events/new' do
+  @events = Event.all
+  @athletes = Athlete.all
   erb( :'events/new' )
 end
 
