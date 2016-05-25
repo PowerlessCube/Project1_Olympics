@@ -20,14 +20,28 @@ post '/athletes' do
   redirect to( '/nations/:id' )
 end
 
-# TODO: 7 restful routes: GET /athletes/:id SHOW
+# 7 restful routes: GET /athletes/:id SHOW
 get '/athletes/:id' do
   @athlete = Athlete.find_by_id( params[:id] )
   erb( :'athletes/show' )
 end
 
-# TODO: 7 restful routes: GET /athletes/:id/edit EDIT
+# 7 restful routes: GET /athletes/:id/edit EDIT
+get '/athletes/:id/edit' do
+  @athlete = Athlete.find_by_id( params[:id] )
+  @nations = Nation.all
+  erb( :'athletes/edit' )
+end
 
-# TODO: 7 restful routes: PUT /athletes/:id UPDATE
+# FIXME: 7 restful routes: PUT /athletes/:id UPDATE
+#not redirecting correctly and is going to a 'sinatra doesn't know this ditty' page.
+put '/athletes/:id' do
+  @athlete = Athlete.update( params )
+  redirect to( "/athletes/#{params[:id]}" )
+end
 
-# TODO: 7 restful routes: DELETE /athletes/:id/delete
+# FIXME: 7 restful routes: DELETE /athletes/:id/delete
+delete '/athletes/:id' do
+  Athlete.delete_by_id( params[:id] )
+  redirect to( '/athletes' )
+end

@@ -41,7 +41,7 @@ class Nation
       acronym = '#{options['acronym']}',
       flag = '#{options['flag']}'
     WHERE
-      id = '#{options['id']}';"
+      id = #{options['id']};"
     )
   end
 

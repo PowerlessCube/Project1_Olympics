@@ -51,18 +51,17 @@ class Event
   end
 
   #UPDATE: functions
-  def update
-    sql =
+  def update( options )
+    SqlRunner.run(
     "UPDATE events
     SET
-      name = '#{@name}',
-      gold_athlete_id = #{@gold_athlete_id},
-      silver_athlete_id = #{@silver_athlete_id},
-      bronze_athlete_id = #{@bronze_athlete_id}
+      name = '#{options['name']}',
+      gold_athlete_id = #{options['gold_athlete_id']},
+      silver_athlete_id = #{options['silver_athlete_id']},
+      bronze_athlete_id = #{options['bronze_athlete_id']}
     WHERE
-      id = #{@id}
-    RETURNING *;"
-    return Event.map_item( sql )
+      id = #{options['id']};"
+    )
   end
 
   #DELETE: functions

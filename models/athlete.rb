@@ -90,16 +90,15 @@ class Athlete
   end
 
   #UPDATE: functions
-  def update
-    sql =
+  def self.update( options )
+    SqlRunner.run(
     "UPDATE athletes
     SET
-      name = '#{@name}',
-      nation_id = #{@nation_id}
+      name = '#{options['name']}',
+      nation_id = #{options['nation_id']}
     WHERE
-      id = #{@id}
-    RETURNING *;"
-    return Athlete.map_item( sql )
+      id = #{options['id']};"
+    )
   end
 
   #DELETE: functions

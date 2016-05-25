@@ -3,4 +3,10 @@
   <% @athlete.event.each do |event| %>
     <li> <%= event.name %></li>
   <% end %>
+
+  <a href="/athletes/<%= @athlete.id %>/edit">Update Athlete</a>
 </ul>
+
+<form action="/athletes/<%= @athlete.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Athlete">
