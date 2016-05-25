@@ -1,0 +1,12 @@
+<ul>
+  <h3><%= @event.name %></h3>
+    <li>Gold Medal Winner: <a href="/athletes/<%= @event.gold_medal_athlete.id %>"><%= @event.gold_medal_athlete.name %></a></li>
+    <li>Silver Medal Winner: <a href="/athletes/<%= @event.silver_medal_athlete.id %>"><%= @event.silver_medal_athlete.name %></a></li>
+    <li>Bronze Medal Winner: <a href="/athletes/<%= @event.bronze_medal_athlete.id %>"><%= @event.bronze_medal_athlete.name %></a></li>
+
+  <a href="/events/<%= @event.id %>/edit">Update Event</a>
+</ul>
+
+<form action="/events/<%= @event.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Event">

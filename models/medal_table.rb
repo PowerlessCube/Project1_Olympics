@@ -41,7 +41,7 @@ class MedalTable
   end
 
   def silver_points( nation )
-    return nation.silver_medals.count * 3
+  return nation.silver_medals.count * 3
   end
 
   def bronze_points(nation)
