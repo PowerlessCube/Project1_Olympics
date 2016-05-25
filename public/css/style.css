@@ -10,6 +10,7 @@ h3 {
 
 h2 {
   text-align: center;
+  background:
 }
 
 ul a{
@@ -19,6 +20,8 @@ ul a{
 body {
   font-family: 'Nunito', sans-serif;
   color: #384047;
+  background-image: url('https://smsprio2016-a.akamaihd.net/news/zDzbAq/canga_rio_2016_-_estampa_1.jpg');
+  background-size: cover;
 }
 
 form {
@@ -39,6 +42,8 @@ form img {
   margin: 0 auto;
 }
 
+input[type="submit"],
+button,
 form button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
@@ -54,6 +59,9 @@ form button {
   margin-bottom: 10px;
 }
 
+.delete{
+  background-color: #F6546A;
+}
 
 input[type="text"],
 select {
@@ -78,21 +86,31 @@ select {
 
 table {
   width: 100%;
+  border-radius: 10px;
 }
 
 thead th {
   background: #7A97E8;
   padding: 15px;
+  border-radius: 5px;
+}
+
+tbody td {
+  text-align: center auto;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 tbody tr:nth-child(even) {
   background-color: #E4EAFA;
   text-align: center;
+  border-radius: 5px;
 }
 
 tbody tr:nth-child(odd) {
   background-color: #BCCBF3;
   text-align: center;
+  border-radius: 5px;
 }
 
 a {
@@ -107,18 +125,21 @@ a:hover {
 nav {
   background-color: #4bc970;
   padding: 10px 0;
+  font-size: 30px;
 }
 nav a img{
   max-width: 200px;
   max-height: 200px;
   border-radius: 100%;
   padding: 20px;
+  display: inline-block;
 }
 
 nav ul {
   padding-left: 0px;
   list-style-type: none;
   text-align:center;
+  display: inline-block;
 }
 
 nav ul li {
