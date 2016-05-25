@@ -1,0 +1,6 @@
+<ul>
+  <h3><%= @athlete.name %></h3>
+  <% @athlete.event.each do |event| %>
+    <li> <%= event.name %></li>
+  <% end %>
+</ul>

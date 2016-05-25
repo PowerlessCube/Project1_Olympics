@@ -7,15 +7,24 @@ get '/athletes' do
   erb( :'athletes/index' )
 end
 
-# TODO: 7 restful routes: GET /athletes/new NEW
+# 7 restful routes: GET /athletes/new NEW
 get '/athletes/new' do
   @nations = Nation.all
   erb( :'athletes/new' )
 end
 
-# TODO: 7 restful routes: POST /athletes CREATE
+# 7 restful routes: POST /athletes CREATE
+post '/athletes' do
+  @athlete = Athlete.new( params )
+  @athlete.save()
+  redirect to( '/nations/:id' )
+end
 
 # TODO: 7 restful routes: GET /athletes/:id SHOW
+get '/athletes/:id' do
+  @athlete = Athlete.find_by_id( params[:id] )
+  erb( :'athletes/show' )
+end
 
 # TODO: 7 restful routes: GET /athletes/:id/edit EDIT
 
