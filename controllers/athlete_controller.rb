@@ -27,20 +27,20 @@ get '/athletes/:id' do
 end
 
 # 7 restful routes: GET /athletes/:id/edit EDIT
+# FIXME: Not showing the athlete's name in the text box on update.  Minor bug but is annoying when updating.
 get '/athletes/:id/edit' do
   @athlete = Athlete.find_by_id( params[:id] )
   @nations = Nation.all
   erb( :'athletes/edit' )
 end
 
-# FIXME: 7 restful routes: PUT /athletes/:id UPDATE
-#not redirecting correctly and is going to a 'sinatra doesn't know this ditty' page.
+# 7 restful routes: PUT /athletes/:id UPDATE
 put '/athletes/:id' do
   @athlete = Athlete.update( params )
   redirect to( "/athletes/#{params[:id]}" )
 end
 
-# FIXME: 7 restful routes: DELETE /athletes/:id/delete
+# 7 restful routes: DELETE /athletes/:id/delete
 delete '/athletes/:id' do
   Athlete.delete_by_id( params[:id] )
   redirect to( '/athletes' )

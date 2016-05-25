@@ -50,6 +50,58 @@ class Event
     return Event.map_item( sql )
   end
 
+  def athletes
+    sql =
+    "SELECT
+      a.*
+    FROM
+      athletes a
+    INNER JOIN
+      event_registers er
+    ON
+      er.athlete_id = a.id
+    INNER JOIN
+      events e
+    ON
+      er.event_id = e.id
+    WHERE
+      #{@id} = er.event_id;"
+    return Athlete.map_items( sql )
+  end
+
+  def gold_medal_athlete
+    sql =
+    "SELECT
+      a.*
+    FROM
+      athletes a
+    WHERE
+      #{@gold_athlete_id} = a.id;"
+    return Athlete.map_item( sql )
+  end
+
+  def silver_medal_athlete
+    sql =
+    "SELECT
+      a.*
+    FROM
+      athletes a
+    WHERE
+      #{@silver_athlete_id} = id;"
+    return Athlete.map_item( sql )
+  end
+
+  def bronze_medal_athlete
+    sql =
+    "SELECT
+      a.*
+    FROM
+      athletes a
+    WHERE
+      #{@bronze_athlete_id} = a.id;"
+    return Athlete.map_item( sql )
+  end
+
   #UPDATE: functions
   def update( options )
     SqlRunner.run(

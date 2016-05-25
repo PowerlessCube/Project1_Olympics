@@ -1,0 +1,21 @@
+<a href="/events/new">Register Event</a>
+
+<table>
+  <thead>
+    <th>Event Table</th>
+  </thead>
+  <tbody>
+    <th>Event Name</th>
+    <th>Gold Medal Winner</th>
+    <th>Silver Medal Winner</th>
+    <th>Bronze Medal Winner</th>
+    <% @events.each do | event | %>
+      <tr>
+        <td> <%= event.name %> </td>
+        <td> <a href="athletes/<%= event.gold_medal_athlete.id %>"><%= event.gold_medal_athlete.name %></a> </td>
+        <td> <a href="athletes/<%= event.silver_medal_athlete.id %>"><%= event.silver_medal_athlete.name %></a> </td>
+        <td> <a href="athletes/<%= event.bronze_medal_athlete.id %>"><%= event.bronze_medal_athlete.name %></a> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

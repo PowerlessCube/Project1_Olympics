@@ -55,8 +55,7 @@ event_register13 = EventRegister.new( { 'athlete_id' => a1.id, 'event_id' => e3.
 event_register14 = EventRegister.new( { 'athlete_id' => a2.id, 'event_id' => e3.id } )
 event_register15 = EventRegister.new( { 'athlete_id' => a3.id, 'event_id' => e3.id } )
 event_register16 = EventRegister.new( { 'athlete_id' => a4.id, 'event_id' => e3.id } )
-event_register17 = EventRegister.new( { 'athlete_id' => a5.id, 'event_id' => e3.id } )
-event_register18 = EventRegister.new( { 'athlete_id' => a6.id, 'event_id' => e3.id } )
+
 
 er1 = event_register1.save()
 er2 = event_register2.save()
@@ -74,8 +73,7 @@ er13 = event_register13.save()
 er14 = event_register14.save()
 er15 = event_register15.save()
 er16 = event_register16.save()
-er17 = event_register17.save()
-er18 = event_register18.save()
+
 
 binding.pry
 nil

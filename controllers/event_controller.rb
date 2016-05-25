@@ -1,7 +1,13 @@
-
-# TODO: 7 restful routes: GET /events INDEX
+# 7 restful routes: GET /events INDEX
+get '/events' do
+  @events = Event.all
+  erb :'events/index'
+end
 
 # TODO: 7 restful routes: GET /events/new NEW
+get 'events/new' do
+  erb( :'events/new' )
+end
 
 # TODO: 7 restful routes: POST /events CREATE
 
