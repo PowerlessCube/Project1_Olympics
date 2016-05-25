@@ -1,12 +1,14 @@
-<h3>Registered Nations</h3>
+<form action="">
 
-  <% @nations.each do |nation| %>
-    <ul>
-      <a href="/nations/<%= nation.id %>"><img src="<%= nation.flag %>" class="flag"></image> <%= nation.name %> </a>
-    </ul>
-  <% end %>
+  <h3>Registered Nations</h3>
 
-  <form action="">
-    <a href="/nations/new"><button type="button">Register Nation</button></a>
-    <a href="/athletes/new"><button type="button">Register Athlete</button></a>
-  </form>
+    <% @nations.each do |nation| %>
+      <ul>
+        <a href="/nations/<%= nation.id %>"><img src="<%= nation.flag %>" class="flag"></image> <%= nation.name %> </a>
+      </ul>
+    <% end %>
+
+  <a href="/nations/new"><button type="button">Register Nation</button></a>
+  <a href="/athletes/new"><button type="button">Register Athlete</button></a>
+  
+</form>

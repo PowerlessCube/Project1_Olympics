@@ -1,8 +1,8 @@
 <div class="content">
 
-  <h3>Edit Nation</h3>
-
   <form action="/nations/<%= @nation.id %>" method="post">
+    <h3>Edit Nation</h3>
+
     <input type="hidden" name="_method" value="put">
     <label for="name">Country Name:</label>
     <input type="text" name="name" value="<%= @nation.name %>"><br>

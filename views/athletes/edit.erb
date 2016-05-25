@@ -1,10 +1,11 @@
 <div class="content">
 
-  <h2>Update Athlete</h2>
-
-  <h3><%= @athlete.name %></h3>
-
   <form action="/athletes/<%= @athlete.id %>" method="post">
+
+    <h2>Update Athlete</h2>
+
+    <h3><%= @athlete.name %></h3>
+    
     <input type="hidden" name="_method" value="put">
     <label for="name">Athlete Name:</label>
     <input type="text" name="name" value="<%=@athlete.name%>"><br>

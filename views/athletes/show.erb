@@ -1,9 +1,8 @@
+<form action="/athletes/<%= @athlete.id %>" method="post">
   <h3><%= @athlete.name %></h3>
   <% @athlete.event.each do |event| %>
     <ul> <a href="/events"> <%= event.name %> </a> </ul>
   <% end %>
-
-<form action="/athletes/<%= @athlete.id %>" method="post">
 
   <a href="/athletes/<%= @athlete.id %>/edit"><button type="button">Update Athlete</button></a>
 
