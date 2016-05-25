@@ -114,6 +114,22 @@ class Nation
     SqlRunner.run( sql )
   end
 
+  def gold_points( )
+    return gold_medals.count * 5
+  end
+
+  def silver_points( )
+  return silver_medals.count * 3
+  end
+
+  def bronze_points()
+    return bronze_medals.count * 1
+  end
+
+  def total_points( )
+    return gold_points( ) + silver_points( ) + bronze_points( )
+  end
+
   #HELPER functions:
   def self.map_items( sql )
     nations = SqlRunner.run( sql )

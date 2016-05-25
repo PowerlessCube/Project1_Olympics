@@ -9,8 +9,8 @@ class MedalTable
   attr_accessor :nations
 
   def initialize(  )
-    @nations = Nation.all
-    #sorting 
+    @nations = Nation.all.sort { |a,b| a.total_points() <=> b.total_points() }.reverse
+    #sorting
   end
 
   def display_flag( nation )
