@@ -12,13 +12,15 @@
         <option value="<%= athlete.id %>"><%= athlete.name %></option>
       <% end %>
     </select><br>
+
     <label for="silver_athlete_id">Silver Medal Winner:</label>
     <select name="silver_athlete_id">
       <% @athletes.each do | athlete | %>
         <option value="<%= athlete.id %>"><%= athlete.name %></option>
       <% end %>
     </select><br>
-    <label for="silver_athlete_id">Bronze Medal Winner:</label>
+
+    <label for="bronze_athlete_id">Bronze Medal Winner:</label>
     <select name="bronze_athlete_id">
       <% @athletes.each do | athlete | %>
         <option value="<%= athlete.id %>"><%= athlete.name %></option>

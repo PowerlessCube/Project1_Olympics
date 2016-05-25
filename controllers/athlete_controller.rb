@@ -17,7 +17,7 @@ end
 post '/athletes' do
   @athlete = Athlete.new( params )
   @athlete.save()
-  redirect to( '/nations/:id' )
+  redirect to( '/nations' )
 end
 
 # 7 restful routes: GET /athletes/:id SHOW

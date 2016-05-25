@@ -1,3 +1,6 @@
+require( 'pry-byebug' )
+require_relative( '../models/event' )
+
 # 7 restful routes: GET /events INDEX
 get '/events' do
   @events = Event.all
@@ -18,14 +21,28 @@ post '/events' do
   redirect to( '/events' )
 end
 
-# TODO: 7 restful routes: GET /events/:id SHOW
+# 7 restful routes: GET /events/:id SHOW
 get '/events/:id' do
   @event = Event.find_by_id( params[ :id ] )
   erb( :'events/show' )
 end
 
-# TODO: 7 restful routes: GET /events/:id/edit EDIT
+# 7 restful routes: GET /events/:id/edit EDIT
+# FIXME: Figure out a way to maintain drop box options from original.  Currently it just resets everything back to the first value and it's confusing for the user.
+get '/events/:id/edit' do
+  @event = Event.find_by_id( params[ :id ] )
+  @athletes = Athlete.all
+  erb( :'events/edit' )
+end
 
 # TODO: 7 restful routes: PUT /events/:id UPDATE
+put '/events/:id' do
+  @event = Event.update( params )
+  redirect to( "/events/#{params[:id]}" )
+end
 
-# TODO: 7 restful routes: DELETE /events/:id/delete
+# 7 restful routes: DELETE /events/:id/delete
+delete '/events/:id' do
+  Event.delete_by_id( params[:id] )
+  redirect to( '/events' )
+end

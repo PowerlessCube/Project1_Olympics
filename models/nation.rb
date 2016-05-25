@@ -2,6 +2,7 @@ require( 'pg' )
 require( 'pry-byebug' )
 require_relative( '../db/sql_runner' )
 require_relative( './athlete' )
+require_relative( './medal_table' )
 
 
 class Nation
@@ -52,6 +53,13 @@ class Nation
     FROM nations;"
     Nation.map_items( sql )
   end
+
+  # def self.sort_all
+  #   nations = Nation.all
+  #   nations.sort { | x, y | y.total_points( nation ) }
+  #
+  #
+  # end
 
   def self.find_by_id( id )
     sql =

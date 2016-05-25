@@ -10,6 +10,7 @@ class MedalTable
 
   def initialize(  )
     @nations = Nation.all
+    #sorting 
   end
 
   def display_flag( nation )
@@ -51,7 +52,6 @@ class MedalTable
   def total_points( nation )
     return gold_points( nation ) + silver_points( nation ) + bronze_points( nation )
   end
-
 
 end
 

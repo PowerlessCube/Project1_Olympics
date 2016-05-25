@@ -103,16 +103,17 @@ class Event
   end
 
   #UPDATE: functions
-  def update( options )
+  def self.update( options )
     SqlRunner.run(
-    "UPDATE events
-    SET
-      name = '#{options['name']}',
-      gold_athlete_id = #{options['gold_athlete_id']},
-      silver_athlete_id = #{options['silver_athlete_id']},
-      bronze_athlete_id = #{options['bronze_athlete_id']}
-    WHERE
-      id = #{options['id']};"
+      "UPDATE
+        events
+      SET
+        name = '#{options['name']}',
+        gold_athlete_id = #{options['gold_athlete_id']},
+        silver_athlete_id = #{options['silver_athlete_id']},
+        bronze_athlete_id = #{options['bronze_athlete_id']}
+      WHERE
+        id = #{options['id']};"
     )
   end
 
@@ -133,8 +134,6 @@ class Event
   # TODO: logic to ensure that an athlete can not win more than one medal per event.
 
   # TODO: logic that involves selecting medal winners from the pool of athletes that have registered for the event.
-
-  # TODO: Logic that lists all athletes participating in a given event.
 
   #Helper functions
   def self.map_items( sql )

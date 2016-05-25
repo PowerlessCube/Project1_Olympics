@@ -1,13 +1,15 @@
-<p>Rio Olympics Medal Table</p>
-
 <table>
-  <tr>
-    <th>Nation</th>
-    <th>Gold Medals</th>
-    <th>Silver Medals</th>
-    <th>Bronze Medals</th>
-    <th>Total Points</th>
-  </tr>
+  <thead>
+    <th>Rio Olympics Medal Table</th>
+    <tr>
+      <th>Nation</th>
+      <th>Gold Medals</th>
+      <th>Silver Medals</th>
+      <th>Bronze Medals</th>
+      <th>Total Points</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @medal_table.nations.each do |nation| %>
     <tr>
       <td><img src="<%= @medal_table.display_flag( nation ) %>" class="flag"></image> <%= @medal_table.display_acronym( nation ) %> <%= @medal_table.display_name( nation ) %> </td>
@@ -17,4 +19,5 @@
       <td> <%= @medal_table.total_points( nation ) %> </td>
     </tr>
   <%end%>
+  </tbody>
 </table>
