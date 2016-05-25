@@ -1,10 +1,20 @@
-<a href="/athletes/new">Register Athlete</a> 
+<h3>Registered Athletes</h3>
 
-<ul>
-<% @athletes.each do |athlete| %>
+<table>
+  <thead>
+    <tr>
+      <th>Athlete Name</th>
+      <th>National Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @athletes.each do |athlete| %>
+      <tr>
+        <td> <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a> </td>
+        <td> <a href="/nations/<%= athlete.nation.id%>"><%= athlete.nation.acronym %> <img src="<%= athlete.nation.flag %>" class="flag"></image></a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <li>
-    <a href="/athletes/<%= athlete.id %>"><%= athlete.name %></a> on Team <a href="/nations/<%= athlete.nation.id%>"><%= athlete.nation.name %></a>
-  </li>
-<% end %>
-</ul>
+<a href="/athletes/new"><button type="button">Register Athlete</button></a>

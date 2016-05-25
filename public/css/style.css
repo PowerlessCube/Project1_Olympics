@@ -4,8 +4,50 @@
   border-radius: 100%;
 }
 
+h3 {
+  text-align: center;
+}
+
+ul a{
+  text-align: center;
+}
+
 body {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+form ul {
+  text-align: center;
+  padding: 0;
+}
+
+form img {
+  display: block ;
+  margin: 0 auto;
+}
+
+form button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
 }
 
 .container {
@@ -18,16 +60,18 @@ table {
 }
 
 thead th {
-  background: red;
+  background: #7A97E8;
   padding: 15px;
 }
 
 tbody tr:nth-child(even) {
-  background-color: green;
+  background-color: #E4EAFA;
+  text-align: center;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: yellow;
+  background-color: #BCCBF3;
+  text-align: center;
 }
 
 a {
@@ -40,8 +84,14 @@ a:hover {
 }
 
 nav {
-  background-color: blue;
+  background-color: #4bc970;
   padding: 10px 0;
+}
+nav a img{
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 100%;
+  padding: 20px;
 }
 
 nav ul {

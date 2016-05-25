@@ -1,6 +1,6 @@
   <h3><%= @athlete.name %></h3>
   <% @athlete.event.each do |event| %>
-    <ul> <a href="/events"> <%= event.name %> </a></ul>
+    <ul> <a href="/events"> <%= event.name %> </a> </ul>
   <% end %>
 
 <form action="/athletes/<%= @athlete.id %>" method="post">

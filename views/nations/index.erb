@@ -1,11 +1,12 @@
+<h3>Registered Nations</h3>
 
-<a href="/nations/new">Register Nation</a>
-<a href="/athletes/new">Register Athlete</a>
-
-<ul>
   <% @nations.each do |nation| %>
-    <li>
+    <ul>
       <a href="/nations/<%= nation.id %>"><img src="<%= nation.flag %>" class="flag"></image> <%= nation.name %> </a>
-    </li>
+    </ul>
   <% end %>
-</ul>
+
+  <form action="">
+    <a href="/nations/new"><button type="button">Register Nation</button></a>
+    <a href="/athletes/new"><button type="button">Register Athlete</button></a>
+  </form>

@@ -1,12 +1,13 @@
+<h3>Registered Events</h3>
+
 <table>
   <thead>
-    <th>Event Table</th>
-  </thead>
-  <tbody>
     <th>Event Name</th>
     <th>Gold Medal Winner</th>
     <th>Silver Medal Winner</th>
     <th>Bronze Medal Winner</th>
+  </thead>
+  <tbody>
     <% @events.each do | event | %>
       <tr>
         <td> <a href="events/<%= event.id %>"><%= event.name %></a> </td>
@@ -18,4 +19,4 @@
   </tbody>
 </table>
 
-<a href="/events/new">Register Event</a>
+<a href="/events/new"><button type="button">Register Event</button></a>
