@@ -23,7 +23,8 @@ class Athlete
     VALUES(
       '#{@name}',
       #{@nation_id}
-    );"
+    )
+    RETURNING *;"
     return Athlete.map_item( sql )
   end
 

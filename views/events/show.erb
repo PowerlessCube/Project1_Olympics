@@ -1,5 +1,4 @@
 <form action="/events/<%= @event.id %>" method="post">
-
   <h3><%= @event.name %></h3>
   <ul>Gold Medal Winner: <a href="/athletes/<%= @event.gold_medal_athlete.id %>"><%= @event.gold_medal_athlete.name %></a></ul>
   <ul>Silver Medal Winner: <a href="/athletes/<%= @event.silver_medal_athlete.id %>"><%= @event.silver_medal_athlete.name %></a></ul>

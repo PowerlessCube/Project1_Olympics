@@ -54,13 +54,6 @@ class Nation
     Nation.map_items( sql )
   end
 
-  # def self.sort_all
-  #   nations = Nation.all
-  #   nations.sort { | x, y | y.total_points( nation ) }
-  #
-  #
-  # end
-
   def self.find_by_id( id )
     sql =
     "SELECT *

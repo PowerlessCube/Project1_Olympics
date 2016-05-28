@@ -27,7 +27,6 @@ get '/athletes/:id' do
 end
 
 # 7 restful routes: GET /athletes/:id/edit EDIT
-# FIXME: Not showing the athlete's name in the text box on update.  Minor bug but is annoying when updating.
 get '/athletes/:id/edit' do
   @athlete = Athlete.find_by_id( params[:id] )
   @nations = Nation.all

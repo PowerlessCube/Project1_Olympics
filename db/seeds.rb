@@ -9,8 +9,8 @@ Event.delete_all
 Athlete.delete_all
 Nation.delete_all
 
-nation1 = Nation.new( { 'name' => 'Great Britain', 'acronym' => 'gbr', 'flag' => 'URL of GBR flag' } )
-nation2 = Nation.new( { 'name' => 'Norway', 'acronym' => 'nor', 'flag' => 'URL of NOW flag' } )
+nation1 = Nation.new( { 'name' => 'Great Britain', 'acronym' => 'gbr', 'flag' => 'http://www.sciencekids.co.nz/images/pictures/flags680/United_Kingdom.jpg' } )
+nation2 = Nation.new( { 'name' => 'Norway', 'acronym' => 'nor', 'flag' => 'http://www.sciencekids.co.nz/images/pictures/flags680/Norway.jpg' } )
 
 n1 = nation1.save()
 n2 = nation2.save()
@@ -22,12 +22,12 @@ athlete4 = Athlete.new( { 'name' => 'Bjron Swimfast', 'nation_id' => n2.id } )
 athlete5 = Athlete.new( { 'name' => 'Borghilt Fallsbehind', 'nation_id' => n2.id } )
 athlete6 = Athlete.new( { 'name' => 'Gary Cantbearsed', 'nation_id' => n1.id } )
 
-a1 = athlete1.save() #Bobby Runfast, GB
-a2 = athlete2.save() #Johny Jumphigh, GB
-a3 = athlete3.save() #Jorgen Throwfar, NOR
-a4 = athlete4.save() #Bjorn Swimfast, NOR
-a5 = athlete5.save() #Borghilt Fallsbehind, NOR
-a6 = athlete6.save() #Gary Cantbearsed, GB
+a1 = athlete1.save()
+a2 = athlete2.save()
+a3 = athlete3.save()
+a4 = athlete4.save()
+a5 = athlete5.save()
+a6 = athlete6.save()
 
 event1 = Event.new( { 'name' => '100meters', 'gold_athlete_id' => a1.id, 'silver_athlete_id' => a2.id, 'bronze_athlete_id' => a3.id } )
 event2 = Event.new( { 'name' => 'Swimming', 'gold_athlete_id' => a2.id, 'silver_athlete_id' => a3.id, 'bronze_athlete_id' => a4.id } )

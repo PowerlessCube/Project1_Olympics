@@ -35,10 +35,12 @@ get '/events/:id/edit' do
   erb( :'events/edit' )
 end
 
-# TODO: 7 restful routes: PUT /events/:id UPDATE
+# FIXME: 7 restful routes: PUT /events/:id UPDATE
+#Creates a new version of the event instead of updating the existing one.
 put '/events/:id' do
   @event = Event.update( params )
   redirect to( "/events/#{params[:id]}" )
+  binding.pry
 end
 
 # 7 restful routes: DELETE /events/:id/delete
